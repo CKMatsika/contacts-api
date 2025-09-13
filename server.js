@@ -35,7 +35,9 @@ const connectDB = async () => {
   } catch (err) {
     console.error('MongoDB connection error:', err.message);
     console.error('Full error:', err);
-    process.exit(1);
+    console.log('⚠️ Server will continue running without database connection');
+    console.log('🔧 Please check your MongoDB Atlas connection string and network settings');
+    // Don't exit - let server run so you can test other endpoints
   }
 };
 
