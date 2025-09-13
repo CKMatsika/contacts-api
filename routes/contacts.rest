@@ -1,0 +1,100 @@
+### Contacts API Testing
+### Base URL - Production
+@baseUrl = https://contacts-api-thzu.onrender.com
+
+### Base URL - Local Development
+# @baseUrl = http://localhost:5000
+
+### Variables for testing
+@contactId = YOUR_CONTACT_ID_HERE
+
+### 1. Health Check
+GET {{baseUrl}}/health
+
+###
+
+### 2. Root endpoint - API Info
+GET {{baseUrl}}/
+
+###
+
+### 3. GET all contacts
+GET {{baseUrl}}/api/contacts
+
+###
+
+### 4. GET contact by ID (Replace with actual ID)
+GET {{baseUrl}}/api/contacts/{{contactId}}
+
+###
+
+### 5. POST - Create a new contact
+POST {{baseUrl}}/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "blue",
+  "birthday": "1990-01-01"
+}
+
+###
+
+### 6. POST - Create another contact
+POST {{baseUrl}}/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "favoriteColor": "red",
+  "birthday": "1985-05-15"
+}
+
+###
+
+### 7. PUT - Update a contact (Replace with actual ID)
+PUT {{baseUrl}}/api/contacts/{{contactId}}
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe.updated@example.com",
+  "favoriteColor": "green",
+  "birthday": "1990-01-01"
+}
+
+###
+
+### 8. DELETE - Delete a contact (Replace with actual ID)
+DELETE {{baseUrl}}/api/contacts/{{contactId}}
+
+###
+
+### 9. Error Testing - Invalid ID format
+GET {{baseUrl}}/api/contacts/invalid-id
+
+###
+
+### 10. Error Testing - Non-existent ID
+GET {{baseUrl}}/api/contacts/507f1f77bcf86cd799439011
+
+###
+
+### 11. Error Testing - Missing required fields
+POST {{baseUrl}}/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Incomplete",
+  "lastName": "Contact"
+}
+
+###
+
+### 12. Swagger Documentation
+GET {{baseUrl}}/api-docs
