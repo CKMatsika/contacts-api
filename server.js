@@ -15,8 +15,13 @@ app.use('/api/contacts', contactsRouter);
 
 // Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
+<<<<<<< HEAD
   .then(() => console.log('MongoDB Atlas connected successfully'))
   .catch(err => console.error('MongoDB connection error:', err));
+=======
+  .then(() => console.log('MongoDB Atlas connected'))
+  .catch(err => console.error(err));
+>>>>>>> 8c15c9dbd666d4c825cc414dc437d0f12761926c
 
 // Root route
 app.get('/', (req, res) => {
@@ -32,6 +37,7 @@ app.get('/', (req, res) => {
   });
 });
 
+<<<<<<< HEAD
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -43,6 +49,8 @@ app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
+=======
+>>>>>>> 8c15c9dbd666d4c825cc414dc437d0f12761926c
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
